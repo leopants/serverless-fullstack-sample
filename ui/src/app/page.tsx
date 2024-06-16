@@ -32,7 +32,9 @@ export default function Home() {
       <div className="grid grid-cols-5  gap-4 z-10 w-full max-w-5xl items-center justify-between text-sm">
         <Card className="col-span-2 dark:border-neutral-800 dark:bg-zinc-800/30  border-neutral-300 bg-zinc-300/20 h-full w-full">
           <CardHeader className="pb-2">
-            <CardTitle className="text-2xl">Hi, I'm Leo Pantaleon</CardTitle>
+            <CardTitle className="text-2xl">
+              Hi, I&apos;m Leo Pantaleon
+            </CardTitle>
           </CardHeader>
           <CardContent className="mt-3">
             <p>Full Stack Software Engineer</p>
@@ -131,9 +133,9 @@ export default function Home() {
           <CardContent className="mt-3">
             <p>
               AI Powered Content Generation System based around a simple
-              concept. All sites have sitemaps and they're easier to think up
-              than all the content for your site, so give us a sitemap we'll
-              create the content
+              concept. All sites have sitemaps and they&apos;re easier to think
+              up than all the content for your site, so give us a sitemap
+              we&apos;ll create the content
             </p>
             <p>Still working to make this great!</p>
           </CardContent>
