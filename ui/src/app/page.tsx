@@ -35,8 +35,8 @@ export default function Home() {
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="grid grid-cols-10  gap-4 z-10 w-full max-w-5xl items-center justify-between text-sm">
-        <Card className="col-span-4 dark:border-neutral-800 dark:bg-zinc-800/30  border-neutral-300 bg-zinc-300/20 h-full w-full">
+      <div className="grid grid-cols-10 gap-4 z-10 w-full max-w-5xl items-center justify-between text-sm">
+        <Card className="sm:col-span-6 lg:col-span-4 dark:border-neutral-800 dark:bg-zinc-800/30  border-neutral-300 bg-zinc-300/20 h-full w-full">
           <CardHeader className="pb-2">
             <CardTitle className="text-2xl">
               Hi, I&apos;m Leo Pantaleon
@@ -44,11 +44,14 @@ export default function Home() {
           </CardHeader>
           <CardContent className="mt-3">
             <p>Full Stack Software Engineer</p>
-            <p>Capital One</p>
-            <p>Boston, MA</p>
+            <p>
+              Currently thinking up ways to use LLMs to solve real world
+              problems especially for people who don&apos;t have a technical
+              background
+            </p>
           </CardContent>
         </Card>
-        <Card className="col-span-2 dark:border-neutral-800 dark:bg-zinc-800/30 border-neutral-300 bg-zinc-300/20 h-full w-full">
+        <Card className="sm:hidden lg:block sm:col-span-2 lg:col-span-2 dark:border-neutral-800 dark:bg-zinc-800/30 border-neutral-300 bg-zinc-300/20 h-full w-full">
           <CardContent className="flex justify-center p-0">
             <Image
               src={profilePic}
@@ -59,11 +62,45 @@ export default function Home() {
             />
           </CardContent>
         </Card>
+
+        <div className="sm:block lg:hidden sm:col-span-2">
+          <Card className="sm:col-span-2 lg:col-span-2 dark:border-neutral-800 dark:bg-zinc-800/30 border-neutral-300 bg-zinc-300/20 h-full w-full mb-2 ">
+            <CardContent className="flex justify-center p-0">
+              <Image
+                src={profilePic}
+                width={200}
+                height={200}
+                alt="Picture of the author"
+                className="rounded-xl contain"
+              />
+            </CardContent>
+          </Card>
+          <Card
+            className="sm:col-span-2 cursor-pointer dark:border-neutral-800 dark:bg-zinc-800/30 border-neutral-300 bg-zinc-300/20 h-full w-full"
+            onClick={() => changeThemeColor()}
+          >
+            <CardHeader className="pb-2 p-2 sm:self-center justify-self-center">
+              <CardTitle className="flex justify-center">
+                {theme == "light" && (
+                  <Moon className="h-6 w-6 justify-self-center transition-all group-hover:scale-110" />
+                )}
+                {theme == "dark" && (
+                  <Sun className="h-6 w-6 justify-self-center transition-all group-hover:scale-110" />
+                )}
+              </CardTitle>
+            </CardHeader>
+            <CardContent className="sm:hidden lg:block flex justify-center items-center p-6">
+              {theme == "light" && <p>Click to turn off the lights</p>}
+              {theme == "dark" && <p>Click to turn on the lights</p>}
+            </CardContent>
+          </Card>
+        </div>
+
         <Card
-          className="col-span-2 cursor-pointer dark:border-neutral-800 dark:bg-zinc-800/30 border-neutral-300 bg-zinc-300/20 h-full w-full"
+          className="sm:hidden lg:block lg:col-span-2 cursor-pointer dark:border-neutral-800 dark:bg-zinc-800/30 border-neutral-300 bg-zinc-300/20 h-full w-full"
           onClick={() => changeThemeColor()}
         >
-          <CardHeader className="pb-2 ">
+          <CardHeader className="pb-2 sm:self-center justify-self-center">
             <CardTitle>
               {theme == "light" && (
                 <Moon className="h-6 w-6 justify-self-center transition-all group-hover:scale-110" />
@@ -73,20 +110,20 @@ export default function Home() {
               )}
             </CardTitle>
           </CardHeader>
-          <CardContent className="flex justify-center items-center p-6">
+          <CardContent className="sm:hidden lg:block flex justify-center items-center p-6">
             {theme == "light" && <p>Click to turn off the lights</p>}
             {theme == "dark" && <p>Click to turn on the lights</p>}
           </CardContent>
         </Card>
-        <div className="col-span-2">
-          <Card className="dark:border-neutral-800 dark:bg-zinc-800/30 border-neutral-300 bg-zinc-300/20 mb-2">
+        <div className="sm:col-span-2 lg:col-span-2">
+          <Card className="dark:border-neutral-800 dark:bg-zinc-800/30 border-neutral-300 bg-zinc-300/20 sm:mb-3.5 lg:mb-2">
             <a href="https://github.com/leopants">
               <CardContent className="flex justify-center p-4">
                 <Github className="h-6 w-6 justify-self-center transition-all group-hover:scale-110" />
               </CardContent>
             </a>
           </Card>
-          <Card className="dark:border-neutral-800 dark:bg-zinc-800/30 border-neutral-300 bg-zinc-300/20 mb-2">
+          <Card className="dark:border-neutral-800 dark:bg-zinc-800/30 border-neutral-300 bg-zinc-300/20 sm:mb-3.5 lg:mb-2">
             <a href="https://linkedin.com/in/leopants">
               <CardContent className="flex justify-center p-4">
                 <Linkedin className="h-6 w-6 justify-self-center transition-all group-hover:scale-110" />
@@ -113,12 +150,13 @@ export default function Home() {
             </TooltipProvider>
           </Card>
         </div>
+
         <Card className="dark:border-neutral-800 dark:bg-zinc-800/30 border-neutral-300 bg-zinc-300/20 col-span-10 mt-4">
           <CardContent className="p-4">
             <p>Experience</p>
           </CardContent>
         </Card>
-        <Card className="col-span-4 dark:border-neutral-800 dark:bg-zinc-800/30 border-neutral-300 bg-zinc-300/20 h-full w-full">
+        <Card className="sm:col-span-10 lg:col-span-4 dark:border-neutral-800 dark:bg-zinc-800/30 border-neutral-300 bg-zinc-300/20 h-full w-full">
           <CardHeader className="pb-2">
             <CardTitle className="text-2xl">Capital One</CardTitle>
           </CardHeader>
@@ -131,7 +169,7 @@ export default function Home() {
             </p>
           </CardContent>
         </Card>
-        <Card className="col-span-3 dark:border-neutral-800 dark:bg-zinc-800/30 border-neutral-300 bg-zinc-300/20 h-full w-full">
+        <Card className="sm:col-span-10 lg:col-span-3 dark:border-neutral-800 dark:bg-zinc-800/30 border-neutral-300 bg-zinc-300/20 h-full w-full">
           <CardHeader className="pb-2">
             <CardTitle className="text-2xl">Deloitte</CardTitle>
           </CardHeader>
@@ -144,7 +182,7 @@ export default function Home() {
             </p>
           </CardContent>
         </Card>
-        <Card className="col-span-3 dark:border-neutral-800 dark:bg-zinc-800/30 border-neutral-300 bg-zinc-300/20 h-full w-full">
+        <Card className="sm:col-span-10 lg:col-span-3 dark:border-neutral-800 dark:bg-zinc-800/30 border-neutral-300 bg-zinc-300/20 h-full w-full">
           <CardHeader className="pb-2">
             <CardTitle className="text-2xl">FIU</CardTitle>
           </CardHeader>
@@ -162,12 +200,12 @@ export default function Home() {
             <p>Projects</p>
           </CardContent>
         </Card>
-        <Card className="col-span-3 dark:border-neutral-800 dark:bg-zinc-800/30 border-neutral-300 bg-zinc-300/20 h-full w-full">
+        <Card className="sm:col-span-10 lg:col-span-3 dark:border-neutral-800 dark:bg-zinc-800/30 border-neutral-300 bg-zinc-300/20 h-full w-full">
           <CardHeader className="pb-2">
             <CardTitle className="flex justify-between">
               <p className="text-2xl">Saitemap.com</p>
-              <a href="https://saitemap.com">
-                <ExternalLink className="h-5 w-5 justify-self-center transition-all group-hover:scale-110" />
+              <a href="https://saitemap.com" className="self-center">
+                <ExternalLink className="h-5 w-5 transition-all group-hover:scale-110" />
               </a>
             </CardTitle>
           </CardHeader>
@@ -181,7 +219,7 @@ export default function Home() {
             <p>Still working to make this great!</p>
           </CardContent>
         </Card>
-        <Card className="col-span-4 dark:border-neutral-800 dark:bg-zinc-800/30 border-neutral-300 bg-zinc-300/20 h-full w-full">
+        <Card className="sm:col-span-10 lg:col-span-4 dark:border-neutral-800 dark:bg-zinc-800/30 border-neutral-300 bg-zinc-300/20 h-full w-full">
           <CardHeader className="pb-2">
             <CardTitle className="text-2xl">
               SparkDev Transit Alliance Team{" "}
@@ -199,13 +237,16 @@ export default function Home() {
             </p>
           </CardContent>
         </Card>
-        <Card className="col-span-3 dark:border-neutral-800 dark:bg-zinc-800/30 border-neutral-300 bg-zinc-300/20 h-full w-full">
+        <Card className="sm:col-span-10 lg:col-span-3 dark:border-neutral-800 dark:bg-zinc-800/30 border-neutral-300 bg-zinc-300/20 h-full w-full">
           <CardHeader className="pb-2">
             <CardTitle className="text-2xl"></CardTitle>
             <CardTitle className="flex justify-between">
               <p className="text-2xl">This Portfolio</p>
-              <a href="https://github.com/leopants/serverless-fullstack-sample">
-                <ExternalLink className="h-5 w-5 justify-self-center transition-all group-hover:scale-110" />
+              <a
+                className="self-center"
+                href="https://github.com/leopants/serverless-fullstack-sample"
+              >
+                <ExternalLink className="h-5 w-5 transition-all group-hover:scale-110" />
               </a>
             </CardTitle>
           </CardHeader>
