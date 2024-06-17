@@ -20,6 +20,7 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
+import { BackgroundBeams } from "@/components/ui/background-beams";
 
 export default function Home() {
   const { theme, setTheme } = useTheme();
@@ -259,6 +260,7 @@ export default function Home() {
           </CardContent>
         </Card>
       </div>
+      <BackgroundBeams />
     </main>
   );
 }
